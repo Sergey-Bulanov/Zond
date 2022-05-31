@@ -14,7 +14,7 @@ void pwm_init(){
         .clk_cfg          = LEDC_AUTO_CLK // LEDC_USE_APB_CLK LEDC_AUTO_CLK
     };
 
-    ESP_ERROR_CHECK(ledc_timer_config(&ledc_timer));
+    ledc_timer_config(&ledc_timer); 
 
     // Prepare and then apply the LEDC PWM channel configuration
     ledc_channel_config_t ledc_channel = {
