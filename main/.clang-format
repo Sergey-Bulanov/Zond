@@ -1,0 +1,5 @@
+# Comment can be here
+# BasedOnStyle: Microsoft
+---
+BasedOnStyle: LLVM
+...
