@@ -22,6 +22,8 @@ void IRAM_ATTR app_main(void) {
 
   while (1) { // Цикл зондирования
 
+    // ранее start_adc_rmt_dac(...) была главная и единственная функция, запускаемая в главном цикле
+
     ledc_stop(LEDC_MODE, LEDC_CHANNEL_40V, 0);  // lib - прекратить PWM на время приема
     memset(result, 0xcc, TIMES);
 
