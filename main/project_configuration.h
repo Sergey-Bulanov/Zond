@@ -53,13 +53,6 @@ Hardware pin's setup:
 #define BUILD_VERSION       "Build Version: 1.0 "
 /****************************************************************/
 
-#define PRINT_ADC_DATA      1
-// Uncomment follow if need to test ADC and disable DAC. Instead ordinary DAC cosin generator used
-// #define COSIN_DAC_TEST      1
-
-// Uncomment follow if need to do 40V slow adc
-// #define SLOW_ADC_TEST       1
-
 //////////////////////////////////////////////////////////////////////////////
 // For release uncomment this option:
 #define RELEASE                             1
