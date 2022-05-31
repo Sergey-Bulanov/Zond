@@ -2,7 +2,7 @@
 #include "project_configuration.h"
 #include "project_functions.h"
 
-static char tag[] = "rmt_tests";
+// static char tag[] = "rmt_tests";
 rmt_channel_t channelA, channelB; 
 
 static rmt_item32_t itemsA[5];
@@ -10,13 +10,7 @@ static rmt_item32_t itemsB[5];
 
 // ранее - initRmt(...)
 void rmt_init(channelPulses_t channelPulses){
-	ESP_LOGI(tag, ">> rmt_run");
-	/* PROBLEM: 
-		- We can not install driver, if it has installed already
-		- Let store current driver/channel statuses 
-		- Possilbe channel status: installed/not installed, stored at channelIsntalled[]
-		- channelIsntalled[0/1/2/3] mapped to RMT_CHANNEL_0/RMT_CHANNEL_1/RMT_CHANNEL_2/RMT_CHANNEL_3
-	*/
+
 	static bool channelIsntalled[4] = {false, false, false, false};
 	
 	gpio_num_t pinA, pinB;
@@ -35,8 +29,7 @@ void rmt_init(channelPulses_t channelPulses){
 
 	rmt_config_t config;
 	config.rmt_mode = RMT_MODE_TX;
-	// config.channel = channelA;
-	config.channel = RMT_CHANNEL_0;
+
 	// config.gpio_num = pinA;
 	config.gpio_num = 21;
 	config.mem_block_num = 1;
@@ -49,24 +42,15 @@ void rmt_init(channelPulses_t channelPulses){
 	config.tx_config.carrier_level = 1;
 	config.clk_div = 1;
 
-	printf(">>>> RMT-1 CH=%d %d %d\n", config.channel, channelIsntalled[config.channel], channelPulses);
-	ESP_ERROR_CHECK(rmt_config(&config));
-	// if(channelIsntalled[config.channel] == true){
-	// 	ESP_ERROR_CHECK(rmt_driver_uninstall(config.channel));
-	// }
-	ESP_ERROR_CHECK(rmt_driver_install(config.channel, 0, 0));
+	config.channel = RMT_CHANNEL_0;
+	rmt_config(&config); 
+	rmt_driver_install(config.channel, 0, 0); 
 	channelIsntalled[config.channel] = true;
 
-	// config.channel = channelB;
-	// config.gpio_num = pinB;
 	config.channel = RMT_CHANNEL_1;
 	config.gpio_num = 22;
-	printf(">>>> RMT-2 CH=%d %d %d\n", config.channel, channelIsntalled[config.channel], channelPulses);
-	ESP_ERROR_CHECK(rmt_config(&config));
-	// if(channelIsntalled[config.channel] == true){
-		// ESP_ERROR_CHECK(rmt_driver_uninstall(config.channel));
-	// }
-	ESP_ERROR_CHECK(rmt_driver_install(config.channel, 0, 0));
+	rmt_config(&config);
+	rmt_driver_install(config.channel, 0, 0); 
 	channelIsntalled[config.channel] = true;
 
 	itemsA[0].duration0 = 654;
