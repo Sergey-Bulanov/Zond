@@ -8,6 +8,7 @@ rmt_channel_t channelA, channelB;
 static rmt_item32_t itemsA[5];
 static rmt_item32_t itemsB[5];
 
+// ранее - initRmt(...)
 void rmt_init(channelPulses_t channelPulses){
 	ESP_LOGI(tag, ">> rmt_run");
 	/* PROBLEM: 
@@ -113,6 +114,7 @@ void rmt_init(channelPulses_t channelPulses){
 
 }
 
+// ранее - runRmt(...)
 void IRAM_ATTR rmt_run(channelPulses_t channelPulses) {
 
 	if(channelPulses == CHANNEL_1_AB){

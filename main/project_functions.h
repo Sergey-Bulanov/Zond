@@ -1,5 +1,5 @@
 // gpio.c - выдача фрейма
-void gpio_ini();    // ранее - gpio_ini()
+void gpio_init();    // ранее - gpio_ini()
 void setFrameLow();
 void setFrameHigh();
 

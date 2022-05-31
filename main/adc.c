@@ -2,6 +2,8 @@
 #include "project_configuration.h"
 #include "project_functions.h"
 
+// ранее эта функция запускалась в start_adc_rmt_dac(channelPulses_t channelPulses)
+// ранее эта функция называлась - static void continuous_adc_init(...)
 void IRAM_ATTR adc_run_dma(uint16_t adc1_chan_mask, uint16_t adc2_chan_mask, adc_channel_t *channel, uint8_t channel_num)
 {
     adc_digi_init_config_t adc_dma_config = {

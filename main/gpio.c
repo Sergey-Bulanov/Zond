@@ -2,7 +2,7 @@
 #include "project_configuration.h"
 #include "project_functions.h"
 
-void gpio_ini() {
+void gpio_init() {
   // zero-initialize the config sructure.
   gpio_config_t io_conf = {};
   // disable interrupt

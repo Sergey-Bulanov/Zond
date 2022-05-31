@@ -15,7 +15,7 @@ void IRAM_ATTR app_main(void) {
   uint8_t result[TIMES] = {0};
   adc_channel_t channel_list[1] = {ADC_ECHO_INPUT};
 
-  gpio_ini();
+  gpio_init();
   rmt_init(0); // функция Скрибловского - 0 или 1  
   pwm_init();
   dac_init();
